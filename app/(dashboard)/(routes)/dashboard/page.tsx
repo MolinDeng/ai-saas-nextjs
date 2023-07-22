@@ -8,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function DashboardPage() {
-  return <Button variant={'destructive'}>Click Me</Button>;
+  return (
+    <div>
+      <p>Dashboard (protected)</p>
+    </div>
+  );
 }
