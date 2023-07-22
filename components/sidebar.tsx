@@ -1,6 +1,6 @@
 'use client';
 
-import { Montserrat } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 
 import { cn } from '@/lib/utils';
 import {
@@ -16,7 +16,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-export const monsterrat = Montserrat({ weight: '600', subsets: ['latin'] });
+export const poppins600 = Poppins({ weight: '600', subsets: ['latin'] });
 
 const routes = [
   {
@@ -70,7 +70,7 @@ function SideBar() {
           <div className="relative w-8 h-8 mr-4">
             <Image fill alt="logo" src="/icon.png" />
           </div>
-          <h1 className={cn('text-2xl font-bold', monsterrat.className)}>
+          <h1 className={cn('text-3xl font-bold', poppins600.className)}>
             Jenius
           </h1>
         </Link>

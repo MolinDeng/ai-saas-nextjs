@@ -1,12 +1,12 @@
 import React from 'react';
 import { UserButton } from '@clerk/nextjs';
-import MobileSideBar from '@/components/mobile-sidebar';
+import SideBarButton from '@/components/sidebarButton';
 
 function NavBar() {
   return (
-    <div className="flex items-center p-4">
-      <MobileSideBar />
-      <div className="flex w-full justify-end">
+    <div className="md:hidden flex items-center p-4">
+      <SideBarButton />
+      <div className="flex w-full justify-end p-4">
         <UserButton afterSignOutUrl="/" />
       </div>
     </div>

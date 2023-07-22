@@ -14,7 +14,7 @@ export default function DashboardLayout({
       </nav>
       <main className="md:pl-72">
         <NavBar />
-        {children}
+        <div className=" pt-12">{children}</div>
       </main>
     </div>
   );

@@ -5,13 +5,13 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import SideBar from '@/components/sidebar';
 import { cn } from '@/lib/utils';
 
-function MobileSideBar() {
+function SideBarButton() {
   return (
     <Sheet>
       <SheetTrigger>
         <div
           className={cn(
-            'md:hidden flex items-center justify-center',
+            'flex items-center justify-center',
             buttonVariants({ variant: 'ghost', size: 'icon' })
           )}
         >
@@ -25,4 +25,4 @@ function MobileSideBar() {
   );
 }
 
-export default MobileSideBar;
+export default SideBarButton;
