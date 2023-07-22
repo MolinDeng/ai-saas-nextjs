@@ -9,9 +9,8 @@ function SideBar() {
       <div className="px-3 py-2 flex-1">
         <Link href={'/dashboard'} className="flex items-center pl-3 mb-14">
           <div className="relative w-8 h-8 mr-4">
-            <Image fill alt="logo" src="/logo.png" />
+            <Image fill alt="logo" src="/icon.png" />
           </div>
-          Logo
         </Link>
       </div>
     </div>
