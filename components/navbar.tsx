@@ -1,8 +1,6 @@
 import React from 'react';
-import { Button } from './ui/button';
-import { Menu } from 'lucide-react';
 import { UserButton } from '@clerk/nextjs';
-import MobileSideBar from './mobile-sidebar';
+import MobileSideBar from '@/components/mobile-sidebar';
 
 function NavBar() {
   return (

@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { UserButton } from '@clerk/nextjs';
 
 export const metadata: Metadata = {
-  title: 'Jenius AI ｜ Home',
+  title: 'Jenius AI',
   description: 'Jenius AI, An One-Stop AI Platform ',
 };
 

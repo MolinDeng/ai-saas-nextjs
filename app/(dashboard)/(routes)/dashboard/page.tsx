@@ -1,16 +1,15 @@
-import { Button } from '@/components/ui/button';
-import Image from 'next/image';
+import NaviBoard from '@/components/naviBoard';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Jenius AI ｜ Dashboard',
+  title: 'Dashboard - Jenius AI',
   description: 'Jenius AI, An One-Stop AI Platform ',
 };
 
 export default function DashboardPage() {
   return (
     <div>
-      <p>Dashboard (protected)</p>
+      <NaviBoard />
     </div>
   );
 }
