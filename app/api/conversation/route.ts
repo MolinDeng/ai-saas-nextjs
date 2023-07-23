@@ -1,4 +1,4 @@
-import { createChatCompletion } from '@/lib/chatgpt';
+import { createChatCompletion } from '@/lib/openai';
 import { auth } from '@clerk/nextjs';
 import { NextRequest, NextResponse } from 'next/server';
 

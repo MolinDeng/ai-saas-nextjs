@@ -10,7 +10,7 @@ import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
-import { ChatCompletionRequestMessage } from 'openai';
+import { ChatCompletionRequestMessage } from '@/lib/openai';
 import { useState } from 'react';
 import Empty from '@/components/empty';
 import Loader from '@/components/loader';

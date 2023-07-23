@@ -1,4 +1,4 @@
-import { createImage } from '@/lib/chatgpt';
+import { createImage } from '@/lib/openai';
 import { auth } from '@clerk/nextjs';
 import { NextRequest, NextResponse } from 'next/server';
 

@@ -26,7 +26,7 @@ const createChatCompletion = async (
     .catch((err) => {
       return {
         role: 'system',
-        content: `ChatGPT was enbale to find an answer for that ! (Error: ${err.message})`,
+        content: `Jenius was unable to find an answer for that ! (Error: ${err.message})`,
       } as ChatCompletionRequestMessage;
     });
   return res;
@@ -50,7 +50,7 @@ const createCodeCompletion = async (
     .catch((err) => {
       return {
         role: 'system',
-        content: `ChatGPT was enbale to find an answer for that ! (Error: ${err.message})`,
+        content: `Jenius was unable to find an answer for that ! (Error: ${err.message})`,
       } as ChatCompletionRequestMessage;
     });
   return res;
@@ -69,9 +69,14 @@ const createImage = async (
       n,
       size,
     })
-    .then((res) => res.data.data);
-  // .catch((err) => {});
+    .then((res) => res.data.data)
+    .catch((err) => err);
   return res;
 };
 
-export { createChatCompletion, createCodeCompletion, createImage };
+export {
+  type ChatCompletionRequestMessage,
+  createChatCompletion,
+  createCodeCompletion,
+  createImage,
+};

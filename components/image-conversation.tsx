@@ -23,6 +23,7 @@ import {
 import { amountOptions, resolutionOptions } from '@/lib/constants';
 import Image from 'next/image';
 import { Card, CardFooter } from '@/components/ui/card';
+import { ApiError } from 'next/dist/server/api-utils';
 
 interface ImgConversationProps {
   tips: string;
@@ -46,11 +47,16 @@ function ImgConversation({ tips, api }: ImgConversationProps) {
     try {
       setImages([]);
       const response = await axios.post(`/api/${api}`, values);
+
+      if (response.data.name == 'Error')
+        throw new ApiError(response.data.status, response.data.message);
+
       const urls = response.data.map((image: { url: string }) => image.url);
       setImages(urls);
 
       promptForm.reset();
     } catch (error) {
+      console.log('22222');
       // if (error?.response?.status === 403) {
       //   proModal.onOpen();
       // } else {
