@@ -19,7 +19,7 @@ function ConversationPage() {
         bgColor="bg-violet-500/10"
       />
       <Conversation
-        placeHolder="Send a message"
+        tips="Who founded OpenAI?"
         api="conversation"
         useMD={false}
       />

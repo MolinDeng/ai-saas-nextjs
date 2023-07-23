@@ -14,18 +14,18 @@ import { ChatCompletionRequestMessage } from 'openai';
 import { useState } from 'react';
 import Empty from '@/components/empty';
 import Loader from '@/components/loader';
-import UserAvatar from '@/components/userAvatar';
-import BotAvatar from '@/components/botAvatar';
+import UserAvatar from '@/components/user-avatar';
+import BotAvatar from '@/components/bot-avatar';
 import { toast } from 'react-hot-toast';
 import ReactMarkdown from 'react-markdown';
 
 interface ConversationProps {
-  placeHolder: string;
+  tips: string;
   api: string;
   useMD: boolean;
 }
 
-function Conversation({ placeHolder, api, useMD }: ConversationProps) {
+function Conversation({ tips, api, useMD }: ConversationProps) {
   const router = useRouter();
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
   const promptForm = useForm<z.infer<typeof formSchema>>({
@@ -77,7 +77,7 @@ function Conversation({ placeHolder, api, useMD }: ConversationProps) {
                   <Input
                     className=" border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                     disabled={isLoading}
-                    placeholder={placeHolder}
+                    placeholder="Send a message"
                     {...field}
                   />
                 </FormControl>
@@ -101,7 +101,7 @@ function Conversation({ placeHolder, api, useMD }: ConversationProps) {
         {messages.length === 0 && !isLoading && (
           <>
             <p className="mt-10 text-center text-muted-foreground">
-              Type a message above to get start
+              Try "{tips}"
             </p>
             <ArrowUpCircle className="h-10 w-10 mx-auto mt-5 animate-bounce text-muted-foreground" />
             <Empty label="No conversation started." />

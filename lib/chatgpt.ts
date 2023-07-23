@@ -2,6 +2,7 @@ import {
   ChatCompletionRequestMessage,
   ChatCompletionResponseMessage,
   Configuration,
+  CreateImageRequestSizeEnum,
   OpenAIApi,
 } from 'openai';
 
@@ -10,6 +11,8 @@ const config = new Configuration({
 });
 
 const openai = new OpenAIApi(config);
+
+// * Converation
 
 const createChatCompletion = async (
   messages: ChatCompletionRequestMessage[]
@@ -53,4 +56,22 @@ const createCodeCompletion = async (
   return res;
 };
 
-export { createChatCompletion, createCodeCompletion };
+// * Image Gen
+
+const createImage = async (
+  prompt: string,
+  n: number,
+  size: CreateImageRequestSizeEnum
+) => {
+  const res = await openai
+    .createImage({
+      prompt,
+      n,
+      size,
+    })
+    .then((res) => res.data.data);
+  // .catch((err) => {});
+  return res;
+};
+
+export { createChatCompletion, createCodeCompletion, createImage };

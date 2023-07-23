@@ -1,4 +1,4 @@
-import NaviBoard from '@/components/naviBoard';
+import NaviBoard from '@/components/navi-board';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {

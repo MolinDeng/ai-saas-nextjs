@@ -19,7 +19,7 @@ function CodeGenPage() {
         bgColor="bg-green-700/10"
       />
       <Conversation
-        placeHolder="Type like 'Simple toggle button using react hooks'"
+        tips="Simple toggle button using react hooks"
         api="code"
         useMD={true}
       />

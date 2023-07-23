@@ -1,6 +1,6 @@
 import React from 'react';
 import { UserButton } from '@clerk/nextjs';
-import SideBarButton from '@/components/sidebarButton';
+import SideBarButton from '@/components/sidebar-button';
 
 function NavBar() {
   return (

@@ -11,3 +11,11 @@ export const formSchema = z.object({
     message: 'Prompt is required.',
   }),
 });
+
+export const mediaFormSchema = z.object({
+  prompt: z.string().min(1, {
+    message: 'Prompt is required.',
+  }),
+  amount: z.string().min(1),
+  resolution: z.string().min(1),
+});
