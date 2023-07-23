@@ -16,8 +16,16 @@ import Empty from '@/components/empty';
 import Loader from '@/components/loader';
 import UserAvatar from '@/components/userAvatar';
 import BotAvatar from '@/components/botAvatar';
+import { toast } from 'react-hot-toast';
+import ReactMarkdown from 'react-markdown';
 
-function Conversation() {
+interface ConversationProps {
+  placeHolder: string;
+  api: string;
+  useMD: boolean;
+}
+
+function Conversation({ placeHolder, api, useMD }: ConversationProps) {
   const router = useRouter();
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
   const promptForm = useForm<z.infer<typeof formSchema>>({
@@ -36,7 +44,7 @@ function Conversation() {
       };
       const newMessages = [...messages, userMessage];
 
-      const response = await axios.post('/api/conversation', {
+      const response = await axios.post(`/api/${api}`, {
         messages: newMessages,
       });
       setMessages((current) => [...current, userMessage, response.data]);
@@ -69,7 +77,7 @@ function Conversation() {
                   <Input
                     className=" border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                     disabled={isLoading}
-                    placeholder="Send a message"
+                    placeholder={placeHolder}
                     {...field}
                   />
                 </FormControl>
@@ -111,7 +119,25 @@ function Conversation() {
               )}
             >
               {message.role === 'user' ? <UserAvatar /> : <BotAvatar />}
-              <p className="text-sm">{message.content}</p>
+              {useMD ? (
+                <ReactMarkdown
+                  components={{
+                    pre: ({ node, ...props }) => (
+                      <div className="overflow-auto w-full my-2 bg-black/10 p-2 rounded-lg">
+                        <pre {...props} />
+                      </div>
+                    ),
+                    code: ({ node, ...props }) => (
+                      <code className="bg-black/10 rounded-lg p-1" {...props} />
+                    ),
+                  }}
+                  className="text-sm overflow-hidden leading-7"
+                >
+                  {message.content || ''}
+                </ReactMarkdown>
+              ) : (
+                <p className="text-sm">{message.content}</p>
+              )}
             </div>
           ))}
         </div>

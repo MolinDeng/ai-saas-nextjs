@@ -18,7 +18,11 @@ function ConversationPage() {
         iconColor="text-violet-500"
         bgColor="bg-violet-500/10"
       />
-      <Conversation />
+      <Conversation
+        placeHolder="Send a message"
+        api="conversation"
+        useMD={false}
+      />
     </div>
   );
 }
