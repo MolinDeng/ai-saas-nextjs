@@ -1,4 +1,4 @@
-export const MAX_FREE_COUNTS = 50;
+export const MAX_FREE_COUNTS = 5;
 export const amountOptions = [
   {
     value: '1',
