@@ -46,7 +46,7 @@ function MusicConversation({ tips }: MusicConversationProps) {
       // }
       console.log(error);
     } finally {
-      router.refresh();
+      router.refresh(); // update changes/rehydrate all server components
     }
   };
 

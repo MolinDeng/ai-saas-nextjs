@@ -62,7 +62,7 @@ function ImgConversation({ tips }: ImgConversationProps) {
       //   toast.error("Something went wrong.");
       // }
     } finally {
-      router.refresh();
+      router.refresh(); // update changes/rehydrate all server components
     }
   };
 

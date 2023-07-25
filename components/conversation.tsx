@@ -58,7 +58,7 @@ function Conversation({ tips, api, useMD }: ConversationProps) {
       // }
       console.log(error);
     } finally {
-      router.refresh();
+      router.refresh(); // update changes/rehydrate all server components
     }
   };
 

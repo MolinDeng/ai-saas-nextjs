@@ -46,7 +46,7 @@ function MediaConversation({ tips }: MediaConversationProps) {
       // }
       console.log(error);
     } finally {
-      router.refresh();
+      router.refresh(); // update changes/rehydrate all server components
     }
   };
 
