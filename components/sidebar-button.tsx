@@ -1,11 +1,10 @@
-'use client';
 import { Menu } from 'lucide-react';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import SideBar from '@/components/sidebar';
 import { cn } from '@/lib/utils';
 
-function SideBarButton() {
+function SideBarButton({ children }: { children: React.ReactNode }) {
   return (
     <Sheet>
       <SheetTrigger>
@@ -19,7 +18,7 @@ function SideBarButton() {
         </div>
       </SheetTrigger>
       <SheetContent side={'left'} className="p-0">
-        <SideBar />
+        {children}
       </SheetContent>
     </Sheet>
   );

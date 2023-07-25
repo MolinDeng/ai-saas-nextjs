@@ -16,6 +16,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { UserButton } from '@clerk/nextjs';
+import SubBanner from './sub-banner';
 
 export const poppins600 = Poppins({ weight: '600', subsets: ['latin'] });
 
@@ -62,7 +63,12 @@ const routes = [
     href: '/settings',
   },
 ];
-function SideBar() {
+
+interface SideBarProps {
+  apiLimitCount: number;
+  isPro: boolean;
+}
+function SideBar({ apiLimitCount, isPro }: SideBarProps) {
   const pathname = usePathname();
   return (
     <div className="space-y-1 py-4 flex flex-col h-full bg-[#111827] text-white">
@@ -95,8 +101,11 @@ function SideBar() {
           ))}
         </div>
       </div>
-      <div className="hidden md:flex items-center justify-center bottom-0">
-        <UserButton afterSignOutUrl="/" />
+      <div className="bottom-0 w-full">
+        {isPro && <SubBanner apiLimitCount={apiLimitCount} />}
+        <div className="hidden md:flex items-center justify-center pt-4">
+          <UserButton afterSignOutUrl="/" />
+        </div>
       </div>
     </div>
   );
