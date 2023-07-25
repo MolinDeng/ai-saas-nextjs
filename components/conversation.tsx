@@ -75,7 +75,7 @@ function Conversation({ tips, api, useMD }: ConversationProps) {
               <FormItem className="col-span-12 lg:col-span-10">
                 <FormControl className="m-0 p-0">
                   <Input
-                    className=" border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
+                    className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                     disabled={isLoading}
                     placeholder="Send a message"
                     {...field}
@@ -92,7 +92,7 @@ function Conversation({ tips, api, useMD }: ConversationProps) {
           </Button>
         </form>
       </Form>
-      <div className="space-y-4 mt-4">
+      <div className="space-y-4 mt-4 overflow-y-scroll h-[calc(100vh-21rem)] md:h-[calc(100vh-18rem)] lg:h-[calc(100vh-15rem)]">
         {isLoading && (
           <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
             <Loader />
