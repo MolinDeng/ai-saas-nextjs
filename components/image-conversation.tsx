@@ -162,7 +162,7 @@ function ImgConversation({ tips }: ImgConversationProps) {
               Try "{tips}"
             </p>
             <ArrowUpCircle className="h-10 w-10 mx-auto mt-5 animate-bounce text-muted-foreground" />
-            <Empty label="Empty..." />
+            <Empty label="No images generated" />
           </>
         )}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8">

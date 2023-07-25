@@ -22,7 +22,7 @@ export default async function DashboardLayout({
           <SideBarButton>
             <SideBar apiLimitCount={apiLimitCount} isPro={isPro} />
           </SideBarButton>
-          <div className="flex w-full justify-end px-4">
+          <div className="px-4">
             <UserButton afterSignOutUrl="/" />
           </div>
         </div>
