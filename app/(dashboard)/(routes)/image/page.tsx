@@ -1,6 +1,6 @@
 import Heading from '@/components/heading';
 import ImgConversation from '@/components/image-conversation';
-import { ImageIcon } from 'lucide-react';
+import { Aperture } from 'lucide-react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -14,11 +14,11 @@ function ImgGenPage() {
       <Heading
         title="Image Generation"
         description="Turn your prompt into an image."
-        icon={ImageIcon}
+        icon={Aperture}
         iconColor="text-pink-700"
         bgColor="bg-pink-700/10"
       />
-      <ImgConversation tips="A picture of a cat on a guitar." api="image" />
+      <ImgConversation tips="A picture of a cat on a guitar." />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import Conversation from '@/components/conversation';
 import Heading from '@/components/heading';
-import { MessageSquare } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ function ConversationPage() {
       <Heading
         title="Conversation"
         description="Our most advanced conversation model."
-        icon={MessageSquare}
+        icon={MessageCircle}
         iconColor="text-violet-500"
         bgColor="bg-violet-500/10"
       />

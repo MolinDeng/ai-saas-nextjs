@@ -1,6 +1,16 @@
-import { createCodeCompletion } from '@/lib/openai';
+import {
+  ChatCompletionRequestMessage,
+  ChatCompletionResponseMessage,
+  openai,
+} from '@/lib/openai';
 import { auth } from '@clerk/nextjs';
 import { NextRequest, NextResponse } from 'next/server';
+
+const instructionMsg: ChatCompletionResponseMessage = {
+  role: 'system',
+  content:
+    'You are a code generator. You must answer only in markdown code sinppets. Use code comments for explanations',
+};
 
 export async function POST(req: NextRequest) {
   try {
@@ -23,7 +33,18 @@ export async function POST(req: NextRequest) {
     // if (!isPro) {
     //   await incrementApiLimit();
     // }
-    const msg = await createCodeCompletion(messages);
+    const msg = await openai
+      .createChatCompletion({
+        model: 'gpt-3.5-turbo',
+        messages: [instructionMsg, ...messages],
+      })
+      .then((res) => res.data.choices[0].message)
+      .catch((err) => {
+        return {
+          role: 'system',
+          content: `Jenius was unable to find an answer for that ! (Error: ${err.message})`,
+        } as ChatCompletionRequestMessage;
+      });
 
     return NextResponse.json(msg);
   } catch (error) {

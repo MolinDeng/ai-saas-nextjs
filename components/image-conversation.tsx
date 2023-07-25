@@ -27,10 +27,9 @@ import { ApiError } from 'next/dist/server/api-utils';
 
 interface ImgConversationProps {
   tips: string;
-  api: string;
 }
 
-function ImgConversation({ tips, api }: ImgConversationProps) {
+function ImgConversation({ tips }: ImgConversationProps) {
   const router = useRouter();
   const [images, setImages] = useState<string[]>([]);
   const promptForm = useForm<z.infer<typeof mediaFormSchema>>({
@@ -46,7 +45,7 @@ function ImgConversation({ tips, api }: ImgConversationProps) {
   const onSubmit = async (values: z.infer<typeof mediaFormSchema>) => {
     try {
       setImages([]);
-      const response = await axios.post(`/api/${api}`, values);
+      const response = await axios.post('/api/image', values);
 
       if (response.data.name == 'Error')
         throw new ApiError(response.data.status, response.data.message);

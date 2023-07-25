@@ -1,4 +1,4 @@
-import { createImage } from '@/lib/openai';
+import { openai } from '@/lib/openai';
 import { auth } from '@clerk/nextjs';
 import { NextRequest, NextResponse } from 'next/server';
 
@@ -23,7 +23,16 @@ export async function POST(req: NextRequest) {
     // if (!isPro) {
     //   await incrementApiLimit();
     // }
-    const msg = await createImage(prompt, parseInt(amount, 10), reso);
+    const msg = await openai
+      .createImage({
+        prompt,
+        n: parseInt(amount, 10),
+        size: reso,
+      })
+      .then((res) => {
+        return res.data.data;
+      })
+      .catch((err) => err);
 
     return NextResponse.json(msg);
   } catch (error) {

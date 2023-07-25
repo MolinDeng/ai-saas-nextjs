@@ -6,37 +6,37 @@ import { cn } from '@/lib/utils';
 import {
   ArrowRight,
   Code,
-  ImageIcon,
-  MessageSquare,
-  Music,
-  VideoIcon,
+  Aperture,
+  MessageCircle,
+  Music2,
+  Youtube,
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 const tools = [
   {
     label: 'Conversation',
-    icon: MessageSquare,
+    icon: MessageCircle,
     href: '/conversation',
     color: 'text-violet-500',
     bgColor: 'bg-violet-500/10',
   },
   {
     label: 'Music Generation',
-    icon: Music,
+    icon: Music2,
     href: '/music',
     color: 'text-emerald-500',
     bgColor: 'bg-emerald-500/10',
   },
   {
     label: 'Image Generation',
-    icon: ImageIcon,
+    icon: Aperture,
     color: 'text-pink-700',
     bgColor: 'bg-pink-700/10',
     href: '/image',
   },
   {
     label: 'Video Generation',
-    icon: VideoIcon,
+    icon: Youtube,
     color: 'text-orange-700',
     bgColor: 'bg-orange-700/10',
     href: '/video',

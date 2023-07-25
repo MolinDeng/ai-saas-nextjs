@@ -4,13 +4,13 @@ import { Poppins } from 'next/font/google';
 
 import { cn } from '@/lib/utils';
 import {
+  Aperture,
   Code,
-  ImageIcon,
-  LayoutDashboard,
-  MessageSquare,
-  Music,
-  Settings,
-  VideoIcon,
+  LayoutGrid,
+  MessageCircle,
+  Music2,
+  Cog,
+  Youtube,
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -22,31 +22,31 @@ export const poppins600 = Poppins({ weight: '600', subsets: ['latin'] });
 const routes = [
   {
     label: 'Dashboard',
-    icon: LayoutDashboard,
+    icon: LayoutGrid,
     href: '/dashboard',
     color: 'text-sky-500',
   },
   {
     label: 'Conversation',
-    icon: MessageSquare,
+    icon: MessageCircle,
     href: '/conversation',
     color: 'text-violet-500',
   },
   {
     label: 'Image Generation',
-    icon: ImageIcon,
+    icon: Aperture,
     href: '/image',
     color: 'text-pink-700',
   },
   {
     label: 'Video Generation',
-    icon: VideoIcon,
+    icon: Youtube,
     href: '/video',
     color: 'text-orange-700',
   },
   {
     label: 'Music Generation',
-    icon: Music,
+    icon: Music2,
     href: '/music',
     color: 'text-emerald-700',
   },
@@ -58,7 +58,7 @@ const routes = [
   },
   {
     label: 'Settings',
-    icon: Settings,
+    icon: Cog,
     href: '/settings',
   },
 ];
