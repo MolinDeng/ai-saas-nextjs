@@ -17,6 +17,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { UserButton } from '@clerk/nextjs';
 import SubBanner from './sub-banner';
+import { Badge } from '@/components/ui/badge';
 
 export const poppins600 = Poppins({ weight: '600', subsets: ['latin'] });
 
@@ -80,6 +81,13 @@ function SideBar({ apiLimitCount, isPro }: SideBarProps) {
           <h1 className={cn('text-3xl font-bold', poppins600.className)}>
             Jenius
           </h1>
+          {isPro && (
+            <div className="pl-2 pb-3">
+              <Badge className="border-white uppercase h-4 w-10 text-[0.6rem]">
+                pro
+              </Badge>
+            </div>
+          )}
         </Link>
         <div className="space-y-4">
           {routes.map((route) => (
