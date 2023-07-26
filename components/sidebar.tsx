@@ -79,7 +79,7 @@ function SideBar({ apiLimitCount, isPro }: SideBarProps) {
             <Image fill alt="logo" src="/icon.png" />
           </div>
           <h1 className={cn('text-3xl font-bold', poppins600.className)}>
-            Jenius
+            Onwhiz
           </h1>
           {isPro && (
             <div className="pl-2 pb-3">

@@ -4,8 +4,8 @@ import { Aperture } from 'lucide-react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Image Generation - Jenius AI',
-  description: 'Jenius AI, An One-Stop AI Platform ',
+  title: 'Image Generation - Onwhiz AI',
+  description: 'Onwhiz AI, An One-Stop AI Platform ',
 };
 
 function ImgGenPage() {

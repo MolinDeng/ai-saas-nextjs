@@ -6,8 +6,8 @@ import { checkSubscription } from '@/lib/subscription';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Setting - Jenius AI',
-  description: 'Jenius AI, An One-Stop AI Platform ',
+  title: 'Setting - Onwhiz AI',
+  description: 'Onwhiz AI, An One-Stop AI Platform ',
 };
 
 const SettingsPage = async () => {

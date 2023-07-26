@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
       .catch((err) => {
         return {
           role: 'system',
-          content: `Jenius was unable to find an answer for that ! (Error: ${err.message})`,
+          content: `Onwhiz was unable to find an answer for that ! (Error: ${err.message})`,
         } as ChatCompletionRequestMessage;
       });
 

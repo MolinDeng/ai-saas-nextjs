@@ -4,8 +4,8 @@ import { MessageCircle } from 'lucide-react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Conversation - Jenius AI',
-  description: 'Jenius AI, An One-Stop AI Platform ',
+  title: 'Conversation - Onwhiz AI',
+  description: 'Onwhiz AI, An One-Stop AI Platform ',
 };
 
 function ConversationPage() {

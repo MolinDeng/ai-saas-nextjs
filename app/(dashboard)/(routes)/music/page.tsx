@@ -4,8 +4,8 @@ import { Music2 } from 'lucide-react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Music Generation - Jenius AI',
-  description: 'Jenius AI, An One-Stop AI Platform ',
+  title: 'Music Generation - Onwhiz AI',
+  description: 'Onwhiz AI, An One-Stop AI Platform ',
 };
 
 function MusicPage() {
