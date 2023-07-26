@@ -3,52 +3,10 @@ import React from 'react';
 // import { tools } from '@/lib/constants';
 import { Card } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
-import {
-  ArrowRight,
-  Code,
-  Aperture,
-  MessageCircle,
-  Music2,
-  Youtube,
-} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-const tools = [
-  {
-    label: 'Conversation',
-    icon: MessageCircle,
-    href: '/conversation',
-    color: 'text-violet-500',
-    bgColor: 'bg-violet-500/10',
-  },
-  {
-    label: 'Music Generation',
-    icon: Music2,
-    href: '/music',
-    color: 'text-emerald-500',
-    bgColor: 'bg-emerald-500/10',
-  },
-  {
-    label: 'Image Generation',
-    icon: Aperture,
-    color: 'text-pink-700',
-    bgColor: 'bg-pink-700/10',
-    href: '/image',
-  },
-  {
-    label: 'Video Generation',
-    icon: Youtube,
-    color: 'text-orange-700',
-    bgColor: 'bg-orange-700/10',
-    href: '/video',
-  },
-  {
-    label: 'Code Generation',
-    icon: Code,
-    color: 'text-green-700',
-    bgColor: 'bg-green-700/10',
-    href: '/code',
-  },
-];
+import { features } from '@/lib/constants';
+
 function NaviBoard() {
   const router = useRouter();
   return (
@@ -62,7 +20,7 @@ function NaviBoard() {
         </p>
       </div>
       <div className="px-4 md:px-20 lg:px-32 space-y-4">
-        {tools.map((tool) => (
+        {features.map((tool) => (
           <Card
             onClick={() => {
               router.push(tool.href);

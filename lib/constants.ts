@@ -1,3 +1,5 @@
+import { Aperture, Code, MessageCircle, Music2, Youtube } from 'lucide-react';
+
 export const MAX_FREE_COUNTS = 5;
 export const amountOptions = [
   {
@@ -34,5 +36,43 @@ export const resolutionOptions = [
   {
     value: '1024x1024',
     label: '1024x1024',
+  },
+];
+
+export const features = [
+  {
+    label: 'Conversation',
+    icon: MessageCircle,
+    href: '/conversation',
+    color: 'text-violet-500',
+    bgColor: 'bg-violet-500/10',
+  },
+  {
+    label: 'Music Generation',
+    icon: Music2,
+    href: '/music',
+    color: 'text-emerald-500',
+    bgColor: 'bg-emerald-500/10',
+  },
+  {
+    label: 'Image Generation',
+    icon: Aperture,
+    color: 'text-pink-700',
+    bgColor: 'bg-pink-700/10',
+    href: '/image',
+  },
+  {
+    label: 'Video Generation',
+    icon: Youtube,
+    color: 'text-orange-700',
+    bgColor: 'bg-orange-700/10',
+    href: '/video',
+  },
+  {
+    label: 'Code Generation',
+    icon: Code,
+    color: 'text-green-700',
+    bgColor: 'bg-green-700/10',
+    href: '/code',
   },
 ];

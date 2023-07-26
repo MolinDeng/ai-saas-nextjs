@@ -2,6 +2,7 @@ import './globals.css';
 import { Poppins, Inter } from 'next/font/google';
 import { ClerkProvider } from '@clerk/nextjs';
 import { Toaster } from '@/components/ui/toast';
+import { SubDialog } from '@/components/sub-dialog';
 
 const inter = Inter({ subsets: ['latin'] });
 export default function RootLayout({
@@ -15,6 +16,7 @@ export default function RootLayout({
         <body className={inter.className}>
           {children}
           <Toaster position="top-center" />
+          <SubDialog />
         </body>
       </html>
     </ClerkProvider>

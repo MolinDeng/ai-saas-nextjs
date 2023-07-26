@@ -5,16 +5,15 @@ import { Zap } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-// import { useProModal } from '@/hooks/use-pro-modal';
 import { MAX_FREE_COUNTS } from '@/lib/constants';
+import { useSubWindowStore } from '@/hooks/use-sub-window';
 
 interface SubBannerProps {
   apiLimitCount: number;
 }
 
 const SubBanner: FC<SubBannerProps> = ({ apiLimitCount }) => {
-  //   const proModal = useProModal();
-
+  const subWindow = useSubWindowStore();
   return (
     <div className="px-3">
       <Card className="bg-white/10 border-0">
@@ -29,7 +28,7 @@ const SubBanner: FC<SubBannerProps> = ({ apiLimitCount }) => {
             />
           </div>
           <Button
-            // onClick={proModal.onOpen}
+            onClick={subWindow.onOpen}
             variant="premium"
             className="w-full"
           >

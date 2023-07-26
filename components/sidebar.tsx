@@ -102,7 +102,7 @@ function SideBar({ apiLimitCount, isPro }: SideBarProps) {
         </div>
       </div>
       <div className="bottom-0 w-full">
-        {isPro && <SubBanner apiLimitCount={apiLimitCount} />}
+        {!isPro && <SubBanner apiLimitCount={apiLimitCount} />}
         <div className="hidden md:flex items-center justify-center pt-4">
           <UserButton afterSignOutUrl="/" />
         </div>
