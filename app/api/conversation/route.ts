@@ -1,5 +1,6 @@
 import { checkApiLimit, incrementApiLimit } from '@/lib/api-limit';
 import { ChatCompletionRequestMessage, openai } from '@/lib/openai';
+import prismadb from '@/lib/prismadb';
 import { checkSubscription } from '@/lib/subscription';
 import { auth } from '@clerk/nextjs';
 import { NextRequest, NextResponse } from 'next/server';
@@ -22,6 +23,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    // request OpenAI completion
     const msg = await openai
       .createChatCompletion({
         model: 'gpt-3.5-turbo',
@@ -35,7 +37,11 @@ export async function POST(req: NextRequest) {
         } as ChatCompletionRequestMessage;
       });
 
+    // save message to DB
+
+    // update free trial usage
     if (!isPro) await incrementApiLimit();
+
     return NextResponse.json(msg);
   } catch (error) {
     console.log('[CONVERSATION_ERROR]', error);

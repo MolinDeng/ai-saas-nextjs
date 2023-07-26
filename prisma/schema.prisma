@@ -24,3 +24,20 @@ model UserSubscription {
   stripePriceId          String?   @map("stripe_price_id")
   stripeCurrentPeriodEnd DateTime? @map("stripe_current_period_end")
 }
+
+// model ChatSession {
+//   id       String    @id @default(cuid())
+//   userId   String    @unique
+//   messages Message[]
+// }
+
+// model Message {
+//   id            String       @id @default(cuid())
+//   createdAt     DateTime     @default(now())
+//   role          String
+//   content       String
+//   ChatSession   ChatSession? @relation(fields: [chatSessionId], references: [id])
+//   chatSessionId String?
+
+//   @@index([chatSessionId, createdAt])
+// }
