@@ -16,8 +16,9 @@ import Empty from '@/components/empty';
 import Loader from '@/components/loader';
 import UserAvatar from '@/components/user-avatar';
 import BotAvatar from '@/components/bot-avatar';
-import { toast } from 'react-hot-toast';
 import ReactMarkdown from 'react-markdown';
+import { useSubWindowStore } from '@/hooks/use-sub-window';
+import { toast } from './ui/toast';
 
 interface ConversationProps {
   tips: string;
@@ -26,6 +27,7 @@ interface ConversationProps {
 }
 
 function Conversation({ tips, api, useMD }: ConversationProps) {
+  const subWindow = useSubWindowStore();
   const router = useRouter();
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
   const promptForm = useForm<z.infer<typeof formSchema>>({
@@ -50,12 +52,16 @@ function Conversation({ tips, api, useMD }: ConversationProps) {
       setMessages((current) => [...current, userMessage, response.data]);
 
       promptForm.reset();
-    } catch (error) {
-      // if (error?.response?.status === 403) {
-      //   proModal.onOpen();
-      // } else {
-      //   toast.error("Something went wrong.");
-      // }
+    } catch (error: any) {
+      if (error?.response?.status === 403) {
+        subWindow.onOpen();
+      } else {
+        toast({
+          title: 'Error',
+          message: 'Something went wrong',
+          type: 'error',
+        });
+      }
       console.log(error);
     } finally {
       router.refresh(); // update changes/rehydrate all server components

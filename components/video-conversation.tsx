@@ -12,12 +12,15 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import Empty from '@/components/empty';
 import Loader from '@/components/loader';
+import { useSubWindowStore } from '@/hooks/use-sub-window';
+import { toast } from '@/components/ui/toast';
 
 interface MediaConversationProps {
   tips: string;
 }
 
 function MediaConversation({ tips }: MediaConversationProps) {
+  const subWindow = useSubWindowStore();
   const router = useRouter();
   const [video, setVideo] = useState<string>();
   const promptForm = useForm<z.infer<typeof formSchema>>({
@@ -38,12 +41,16 @@ function MediaConversation({ tips }: MediaConversationProps) {
       setVideo(response.data[0]);
 
       promptForm.reset();
-    } catch (error) {
-      // if (error?.response?.status === 403) {
-      //   proModal.onOpen();
-      // } else {
-      //   toast.error("Something went wrong.");
-      // }
+    } catch (error: any) {
+      if (error?.response?.status === 403) {
+        subWindow.onOpen();
+      } else {
+        toast({
+          title: 'Error',
+          message: 'Something went wrong',
+          type: 'error',
+        });
+      }
       console.log(error);
     } finally {
       router.refresh(); // update changes/rehydrate all server components

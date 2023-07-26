@@ -12,7 +12,6 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import Empty from '@/components/empty';
 import Loader from '@/components/loader';
-import { toast } from 'react-hot-toast';
 import {
   Select,
   SelectContent,
@@ -24,12 +23,15 @@ import { amountOptions, resolutionOptions } from '@/lib/constants';
 import Image from 'next/image';
 import { Card, CardFooter } from '@/components/ui/card';
 import { ApiError } from 'next/dist/server/api-utils';
+import { useSubWindowStore } from '@/hooks/use-sub-window';
+import { toast } from '@/components/ui/toast';
 
 interface ImgConversationProps {
   tips: string;
 }
 
 function ImgConversation({ tips }: ImgConversationProps) {
+  const subWindow = useSubWindowStore();
   const router = useRouter();
   const [images, setImages] = useState<string[]>([]);
   const promptForm = useForm<z.infer<typeof mediaFormSchema>>({
@@ -54,13 +56,16 @@ function ImgConversation({ tips }: ImgConversationProps) {
       setImages(urls);
 
       promptForm.reset();
-    } catch (error) {
-      console.log('22222');
-      // if (error?.response?.status === 403) {
-      //   proModal.onOpen();
-      // } else {
-      //   toast.error("Something went wrong.");
-      // }
+    } catch (error: any) {
+      if (error?.response?.status === 403) {
+        subWindow.onOpen();
+      } else {
+        toast({
+          title: 'Error',
+          message: 'Something went wrong',
+          type: 'error',
+        });
+      }
     } finally {
       router.refresh(); // update changes/rehydrate all server components
     }

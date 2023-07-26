@@ -15,7 +15,7 @@ export default async function DashboardLayout({
   return (
     <div className="h-full relative">
       {/* hidden in mobile devides */}
-      <nav className="hidden h-full md:flex md:flex-col md:fixed md:w-72 md:inset-y-0 z-10 bg-gray-900">
+      <nav className="hidden h-full md:flex md:flex-col md:fixed md:w-72 md:inset-y-0 z-1 bg-gray-900">
         <SideBar apiLimitCount={apiLimitCount} isPro={isPro} />
       </nav>
       <main className="md:pl-72">

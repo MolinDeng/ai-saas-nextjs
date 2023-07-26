@@ -12,12 +12,15 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import Empty from '@/components/empty';
 import Loader from '@/components/loader';
+import { toast } from '@/components/ui/toast';
+import { useSubWindowStore } from '@/hooks/use-sub-window';
 
 interface MusicConversationProps {
   tips: string;
 }
 
 function MusicConversation({ tips }: MusicConversationProps) {
+  const subWindow = useSubWindowStore();
   const router = useRouter();
   const [music, setMusic] = useState<string>();
   const promptForm = useForm<z.infer<typeof formSchema>>({
@@ -38,13 +41,16 @@ function MusicConversation({ tips }: MusicConversationProps) {
       setMusic(response.data.audio);
 
       promptForm.reset();
-    } catch (error) {
-      // if (error?.response?.status === 403) {
-      //   proModal.onOpen();
-      // } else {
-      //   toast.error("Something went wrong.");
-      // }
-      console.log(error);
+    } catch (error: any) {
+      if (error?.response?.status === 403) {
+        subWindow.onOpen();
+      } else {
+        toast({
+          title: 'Error',
+          message: 'Something went wrong',
+          type: 'error',
+        });
+      }
     } finally {
       router.refresh(); // update changes/rehydrate all server components
     }
