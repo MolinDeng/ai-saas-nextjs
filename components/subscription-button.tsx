@@ -15,8 +15,8 @@ export const SubscriptionButton = ({ isPro = false }: { isPro: boolean }) => {
       setLoading(true);
 
       const response = await axios.get('/api/stripe');
-
-      window.location.href = response.data.url;
+      if (isPro) window.open(response.data.url, '_blank', 'noreferrer');
+      else window.location.href = response.data.url;
     } catch (error) {
       toast({
         title: 'Error',

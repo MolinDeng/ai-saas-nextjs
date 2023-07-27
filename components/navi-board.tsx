@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-// import { tools } from '@/lib/constants';
 import { Card } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import { ArrowRight } from 'lucide-react';
@@ -16,7 +15,7 @@ function NaviBoard() {
           Explor the power of AI
         </h2>
         <p className="text-muted-foreground font-light text-sm md:text-lg text-center">
-          Chat with the smartest AI - Expericen the power of AI
+          Chat with the smartest AI - Experience the power of AI
         </p>
       </div>
       <div className="px-4 md:px-20 lg:px-32 space-y-4">
