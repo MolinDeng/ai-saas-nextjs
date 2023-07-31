@@ -1,8 +1,8 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { UserButton } from '@clerk/nextjs';
+import { LandingNavbar } from '@/components/landing-navbar';
+import { LandingHero } from '@/components/landing-hero';
+import { LandingContent } from '@/components/landing-content';
 
 export const metadata: Metadata = {
   title: 'Onwhiz AI',
@@ -11,17 +11,10 @@ export const metadata: Metadata = {
 
 export default function LandingPage() {
   return (
-    <div>
-      LandingPage (Unprotected)
-      <div>
-        <Link href={'/sign-in'}>
-          <Button>Login</Button>
-        </Link>
-        <Link href={'/sign-up'}>
-          <Button>Register</Button>
-        </Link>
-        <UserButton afterSignOutUrl="/" />
-      </div>
+    <div className="h-full ">
+      <LandingNavbar />
+      <LandingHero />
+      <LandingContent />
     </div>
   );
 }

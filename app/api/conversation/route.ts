@@ -1,6 +1,5 @@
 import { checkApiLimit, incrementApiLimit } from '@/lib/api-limit';
 import { ChatCompletionRequestMessage, openai } from '@/lib/openai';
-import prismadb from '@/lib/prismadb';
 import { checkSubscription } from '@/lib/subscription';
 import { auth } from '@clerk/nextjs';
 import { NextRequest, NextResponse } from 'next/server';
