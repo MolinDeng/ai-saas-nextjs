@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function LandingPage() {
   return (
-    <div className="h-full ">
+    <div className="h-full">
       <LandingNavbar />
       <LandingHero />
       <LandingContent />
