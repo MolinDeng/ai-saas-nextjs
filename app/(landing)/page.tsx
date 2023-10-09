@@ -15,6 +15,25 @@ export default function LandingPage() {
       <LandingNavbar />
       <LandingHero />
       <LandingContent />
+      <div className="inline absolute bottom-0 left-0 m-2 text-background">
+        By{' '}
+        <a
+          className="text-yellow-200 underline"
+          href="https://molin7.vercel.app/"
+          target="_blank"
+        >
+          @molin
+        </a>
+        <br />
+        View source on{' '}
+        <a
+          className="text-yellow-200 underline"
+          href="https://github.com/MolinDeng/ai-saas-nextjs"
+          target="_blank"
+        >
+          Github
+        </a>
+      </div>
     </div>
   );
 }
